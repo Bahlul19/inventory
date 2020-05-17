@@ -38,6 +38,51 @@ class CategoryController extends Controller
     //Fetching data fro the database
     public function allCategory()
     {
-        echo 'For fecting all category from the database';
+        $category = Category::all();
+        return  view('all_category')->with('category', $category);
+    }
+
+    //Delete Category Method
+    public function deleteCategory($id)
+    {
+        $category = Category::find($id);
+        $delete = $category->delete();
+
+        if($delete)
+        {
+            $notification = array(
+                'message' => 'Category Deleted Successfully',
+                'alert-type' => 'danger',
+            );
+
+            return Redirect()->route('all.category')->with($notification);
+        }
+        else {
+            return Redirect()->back();
+        }
+
+    }
+
+    public function editCategory($id)
+    {
+        $category = Category::findorfail($id);
+        return view('edit_category', compact('category'));
+    }
+
+    public function updateCategory(Request $request, $id)
+    {
+        $category = Category::findorfail($id);
+        $category->name = $request->name;
+        $update = $category->save();
+        if($update){
+            $notification = array(
+                'message' => 'Category Added Successfully',
+                'alert-type' => 'success',
+            );
+
+            return Redirect()->route('all.category')->with($notification);
+        } else {
+            return Redirect()->back();
+        }
     }
 }
