@@ -40,4 +40,9 @@ Route::get('/edit-category/{id}','CategoryController@editCategory');
 Route::post('/update-category/{id}','CategoryController@updateCategory');
  
 
-
+//Posts Routing
+Route::post('/add-post', 'PostsController@addPost');
+Route::post('/all-post', 'PostsController@allPost')->name('all.post');
+Route::get('/edit-post/{id}', 'UserPostsController@editPost');
+Route::post('/update-posts/{id}','UserPostsController@updatePost');
+Route::get('/delete-posts/{id}','UserPostsController@deletePost');
