@@ -14,3 +14,25 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/layout', function () {
+    return view('layout');
+});
+
+Route::get('/link', function () {
+    return view('link');
+});
+
+// Route::get('/home', function () {
+//     return view('home');
+// });
+
+Auth::routes();
+Route::get('/home', 'HomeController@index')->name('home');
+
+
+//Category Routing
+
+Route::post('/add-category','CategoryController@add');
+Route::get('/all-category','CategoryController@allCategory')->name('all.category');
+
