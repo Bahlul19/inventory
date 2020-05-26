@@ -20,8 +20,8 @@
           <td>{{ $posts->details }}</td>
           <td><img src="{{ URL::to($posts->image)}}" style="height: 70px; width: 100px"></td>
           <td>
-          {{-- <a href="{{ URL::to('edit-post/'.$categories->id)}}" class="btn btn-info btn-sm">Edit</a>
-          <a href="{{ URL::to('delete-post/'.$categories->id)}}" class="btn btn-danger btn-sm">Delete</a> --}}
+          <a href="{{ URL::to('edit-post/'.$categories->id)}}" class="btn btn-info btn-sm">Edit</a>
+          <a href="{{ URL::to('delete-post/'.$categories->id)}}" class="btn btn-danger btn-sm">Delete</a>
           </td>
           </tr>
           @endforeach

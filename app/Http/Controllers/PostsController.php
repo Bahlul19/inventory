@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;;
+use Illuminate\Http\Request;
 use App\Post;
 
 class PostsController extends Controller
@@ -17,48 +17,40 @@ class PostsController extends Controller
         ]);
 
         $post = new Post();
-       // $post->category_id = $request->category_id;
+        // $post->category_id = $request->category_id;
         $post->title = $request->title;
         $post->details = $request->details;
         $image = $request->file('image');
 
-        if($image)
-        {
+        if ($image) {
             $image_name = hexdec(uniqid());
             $ext = strtolower($image->getClientOriginalExtension());
             $image_full_name = $image_name.'.'.$ext;
             $upload_path = 'public/assets/img/';
             $image_url = $upload_path.$image_full_name;
-            $success = $image->move($upload_path,$image_full_name);
+            $success = $image->move($upload_path, $image_full_name);
             $post->image = $image_url;
             $storeData = $post->save();
-            if($storeData)
-            {
+            if ($storeData) {
                 $notification = array(
                     'message' => 'Category Added Successfully',
                     'alert-type' => 'success',
                 );
+
                 return Redirect()->route('all.category')->with($notification);
-            }
-            else
-            {
+            } else {
                 return back()->with('error', 'Posts are not inserted successfully');
             }
-
-        }
-        else
-        {
+        } else {
             $posts = $post->save();
-            if($posts)
-            {
+            if ($posts) {
                 $notification = array(
                     'message' => 'Category Added Successfully',
                     'alert-type' => 'success',
                 );
+
                 return Redirect()->route('all.category')->with($notification);
-            }
-            else
-            {
+            } else {
                 return back()->with('error', 'Posts are not inserted successfully');
             }
         }
@@ -68,6 +60,7 @@ class PostsController extends Controller
     public function allPost()
     {
         $post = Post::all();
+
         return view('all_post')->with('post', $post);
     }
 
@@ -75,6 +68,7 @@ class PostsController extends Controller
     public function editPost($id)
     {
         $post = Post::findorfail($id);
+
         return view('edit_post', compact('post'));
     }
 
@@ -91,37 +85,27 @@ class PostsController extends Controller
         $post->details = $request->details;
         $image = $request->file('image');
 
-        if($image)
-        {
+        if ($image) {
             $image_name = hexdec(uniqid());
             $ext = strtolower($image->getClientOriginalExtension());
             $image_full_name = $image_name.'.'.$ext;
             $upload_path = 'public/assets/img/';
             $image_url = $upload_path.$image_full_name;
-            $success = $image->move($upload_path,$image_full_name);
+            $success = $image->move($upload_path, $image_full_name);
             $post->image = $image_url;
             unlink($request->old_photo);
             $savePost = $post->save();
-            if($savePost)
-            {
-                return Redirect()->route('all.posts')->with('success','Posts are inserted successfully');
-            }
-            else
-            {
+            if ($savePost) {
+                return Redirect()->route('all.posts')->with('success', 'Posts are inserted successfully');
+            } else {
                 return back()->with('error', 'Posts are not inserted successfully');
             }
-
-        }
-        else
-        {
+        } else {
             $post->image = $request->old_photo;
             $postImageSave = $post->save();
-            if($postImageSave)
-            {
-                return Redirect()->route('all.posts')->with('success','Posts are inserted successfully');
-            }
-            else
-            {
+            if ($postImageSave) {
+                return Redirect()->route('all.posts')->with('success', 'Posts are inserted successfully');
+            } else {
                 return back()->with('error', 'Posts are not inserted successfully');
             }
         }
@@ -134,13 +118,11 @@ class PostsController extends Controller
         $image = $post->image;
         $postDelete = $post->delete();
 
-        if($postDelete)
-        {
+        if ($postDelete) {
             unlink($image);
-            return Redirect()->route('all.posts')->with('success','Posts are deleted successfully');
-        }
-        else
-        {
+
+            return Redirect()->route('all.posts')->with('success', 'Posts are deleted successfully');
+        } else {
             return back()->with('error', 'Posts is not deleted successfully');
         }
     }

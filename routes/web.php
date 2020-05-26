@@ -30,19 +30,14 @@ Route::get('/link', function () {
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
-
 //Category Routing
 
-Route::post('/add-category','CategoryController@add');
-Route::get('/all-category','CategoryController@allCategory')->name('all.category');
-Route::get('/delete-category/{id}','CategoryController@deleteCategory');
-Route::get('/edit-category/{id}','CategoryController@editCategory');
-Route::post('/update-category/{id}','CategoryController@updateCategory');
- 
+Route::post('/add-category', 'CategoryController@add');
+Route::get('/all-category', 'CategoryController@allCategory')->name('all.category');
+Route::get('/delete-category/{id}', 'CategoryController@deleteCategory');
+Route::get('/edit-category/{id}', 'CategoryController@editCategory');
+Route::post('/update-category/{id}', 'CategoryController@updateCategory');
 
 //Posts Routing
 Route::post('/add-post', 'PostsController@addPost');
-Route::post('/all-post', 'PostsController@allPost')->name('all.post');
-Route::get('/edit-post/{id}', 'UserPostsController@editPost');
-Route::post('/update-posts/{id}','UserPostsController@updatePost');
-Route::get('/delete-posts/{id}','UserPostsController@deletePost');
+Route::get('/all-post', 'PostsController@allPost')->name('all.post');
