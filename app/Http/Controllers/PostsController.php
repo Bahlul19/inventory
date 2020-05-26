@@ -17,7 +17,6 @@ class PostsController extends Controller
         ]);
 
         $post = new Post();
-        // $post->category_id = $request->category_id;
         $post->title = $request->title;
         $post->details = $request->details;
         $image = $request->file('image');
@@ -37,7 +36,7 @@ class PostsController extends Controller
                     'alert-type' => 'success',
                 );
 
-                return Redirect()->route('all.category')->with($notification);
+                return Redirect()->route('all.post')->with($notification);
             } else {
                 return back()->with('error', 'Posts are not inserted successfully');
             }
@@ -96,7 +95,7 @@ class PostsController extends Controller
             unlink($request->old_photo);
             $savePost = $post->save();
             if ($savePost) {
-                return Redirect()->route('all.posts')->with('success', 'Posts are inserted successfully');
+                return Redirect()->route('all.post')->with('success', 'Posts are updated successfully');
             } else {
                 return back()->with('error', 'Posts are not inserted successfully');
             }
@@ -104,7 +103,7 @@ class PostsController extends Controller
             $post->image = $request->old_photo;
             $postImageSave = $post->save();
             if ($postImageSave) {
-                return Redirect()->route('all.posts')->with('success', 'Posts are inserted successfully');
+                return Redirect()->route('all.post')->with('success', 'Posts are updated successfully');
             } else {
                 return back()->with('error', 'Posts are not inserted successfully');
             }
@@ -114,14 +113,18 @@ class PostsController extends Controller
     //Post delete method
     public function deletePost($id)
     {
-        $post = Post::find($id);
+        $post = Post::findorfail($id);
         $image = $post->image;
         $postDelete = $post->delete();
 
         if ($postDelete) {
             unlink($image);
+            $notification = array(
+                'message' => 'Category Added Successfully',
+                'alert-type' => 'success',
+            );
 
-            return Redirect()->route('all.posts')->with('success', 'Posts are deleted successfully');
+            return Redirect()->route('all.post')->with($notification);
         } else {
             return back()->with('error', 'Posts is not deleted successfully');
         }

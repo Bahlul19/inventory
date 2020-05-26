@@ -4,7 +4,7 @@
     <div class="row">
       <div class="col-lg-8 col-md-10 mx-auto">
         <p>
-          <a href="{{ route('all.posts') }}" class="btn btn-danger">List Posts</a>
+          <a href="{{ route('all.post') }}" class="btn btn-danger">List Posts</a>
         </p>
         
         @if ($errors->any())
@@ -17,7 +17,7 @@
         </div>
         @endif
 
-    <form action="{{ url('update-posts/'.$post->id) }}" method="post" enctype="multipart/form-data">
+    <form action="{{ url('update-post/'.$post->id) }}" method="post" enctype="multipart/form-data">
         @csrf
             <div class="control-group">
 
@@ -41,7 +41,7 @@
             <div class="form-group floating-label-form-group controls">
               <label>Product Image</label>
               <input type="file" name="image" class="form-control" id="image"><br/>
-              
+
             Old Image : <img src="{{ URL::to($post->image) }}" style="hight: 40px; width: 100px">
 
             <input type="hidden" name="old_photo" value="{{ $post->image }}">

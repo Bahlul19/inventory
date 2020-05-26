@@ -23,10 +23,6 @@ Route::get('/link', function () {
     return view('link');
 });
 
-// Route::get('/home', function () {
-//     return view('home');
-// });
-
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
@@ -41,3 +37,6 @@ Route::post('/update-category/{id}', 'CategoryController@updateCategory');
 //Posts Routing
 Route::post('/add-post', 'PostsController@addPost');
 Route::get('/all-post', 'PostsController@allPost')->name('all.post');
+Route::get('/edit-post/{id}', 'PostsController@editPost');
+Route::post('/update-post/{id}', 'PostsController@updatePost');
+Route::get('/delete-post/{id}', 'PostsController@deletePost');

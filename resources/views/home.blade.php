@@ -16,7 +16,7 @@
                         </div>
                     @endif
                     <a href="{{ route('all.category') }}">All Categories</a>
-                    <a href="{{ route('all.post') }}" style="float: right">All Categories</a>
+                    <a href="{{ route('all.post') }}" style="float: right">All Posts</a>
                 </div>
             </div>
         </div>
@@ -82,17 +82,6 @@
       @endif
     <form action="{{ url('add-post') }}" method="post" enctype="multipart/form-data">
         @csrf
-            <div class="control-group">
-                {{-- <div class="form-group floating-label-form-group controls">
-                  <label>Category ID</label>
-                 <select class="form-control" name="category_id">
-                   @foreach($category as $categories)
-                 <option value="{{ $categories->id }}">{{ $categories->name }}</option>
-                    @endforeach
-                 </select>
-                  <p class="help-block text-danger"></p>
-                </div> --}}
-            </div>
 
           <div class="control-group">
             <div class="form-group floating-label-form-group controls">

@@ -39,6 +39,7 @@ class CategoryController extends Controller
     public function allCategory()
     {
         $category = Category::all();
+
         return  view('all_category')->with('category', $category);
     }
 
@@ -48,24 +49,22 @@ class CategoryController extends Controller
         $category = Category::find($id);
         $delete = $category->delete();
 
-        if($delete)
-        {
+        if ($delete) {
             $notification = array(
                 'message' => 'Category Deleted Successfully',
                 'alert-type' => 'danger',
             );
 
             return Redirect()->route('all.category')->with($notification);
-        }
-        else {
+        } else {
             return Redirect()->back();
         }
-
     }
 
     public function editCategory($id)
     {
         $category = Category::findorfail($id);
+
         return view('edit_category', compact('category'));
     }
 
@@ -74,7 +73,7 @@ class CategoryController extends Controller
         $category = Category::findorfail($id);
         $category->name = $request->name;
         $update = $category->save();
-        if($update){
+        if ($update) {
             $notification = array(
                 'message' => 'Category Added Successfully',
                 'alert-type' => 'success',
