@@ -26,6 +26,11 @@ Route::get('/link', function () {
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
+//password change
+
+Route::get('/passsword-change', 'HomeController@passwordChange')->name('password.change');
+Route::post('/password-update', 'HomeController@updatePassword');
+
 //Category Routing
 
 Route::post('/add-category', 'CategoryController@add');
