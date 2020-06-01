@@ -99,6 +99,13 @@ return [
     */
 
     'sendmail' => '/usr/sbin/sendmail -bs',
+            'stream' => [
+                'ssl' => [
+                    'allow_self_singed' => true,
+                    'verify_peer' => false,
+                    'verify_peer_name' => false,
+                ],
+            ],
 
     /*
     |--------------------------------------------------------------------------

@@ -29,9 +29,9 @@ Route::get('/link', function () {
     return view('link');
 });
 
-Auth::routes();
+Auth::routes(['verify' => true]);
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/home-page', 'HomeController@homePage')->name('homepage');
+Route::get('/home-page', 'HomeController@homePage')->name('homepage')->middleware('verified');
 
 //password change
 
