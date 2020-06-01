@@ -29,6 +29,13 @@ class HomeController extends Controller
         return view('home');
     }
 
+    //Admin Homepage
+
+    public function homePage()
+    {
+        return view('homepage');
+    }
+
     //Password Changes Method
 
     public function passwordChange()

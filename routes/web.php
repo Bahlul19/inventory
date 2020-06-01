@@ -11,8 +11,14 @@
 |
 */
 
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+//home page URL
+
 Route::get('/', function () {
-    return view('welcome');
+    return Redirect()->route('login');
 });
 
 Route::get('/layout', function () {
@@ -25,6 +31,7 @@ Route::get('/link', function () {
 
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home-page', 'HomeController@homePage')->name('homepage');
 
 //password change
 
