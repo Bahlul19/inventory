@@ -40,6 +40,8 @@ Route::post('/password-update', 'HomeController@updatePassword');
 
 //Category Routing
 
+// Route::post('/add-category', 'CategoryController@add');
+Route::get('/category.store-category', 'CategoryController@storeCategory');
 Route::post('/add-category', 'CategoryController@add');
 Route::get('/all-category', 'CategoryController@allCategory')->name('all.category');
 Route::get('/delete-category/{id}', 'CategoryController@deleteCategory');

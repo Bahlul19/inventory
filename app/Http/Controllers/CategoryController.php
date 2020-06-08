@@ -12,6 +12,11 @@ class CategoryController extends Controller
         $this->middleware('auth');
     }
 
+    public function storeCategory()
+    {
+        return view('category.add_category');
+    }
+
     //Add Category Method
     public function add(Request $request)
     {
