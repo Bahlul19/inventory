@@ -52,3 +52,9 @@ Route::get('/all-post', 'PostsController@allPost')->name('all.post');
 Route::get('/edit-post/{id}', 'PostsController@editPost');
 Route::post('/update-post/{id}', 'PostsController@updatePost');
 Route::get('/delete-post/{id}', 'PostsController@deletePost');
+
+//Employee Controller
+
+Route::get('/Employee.add_employee', 'EmployeeController@addEmployee')->name('add.employee');
+Route::post('/Employee.store_data', 'EmployeeController@storeData');
+Route::get('/Employee.all_employee', 'EmployeeController@getAllEmployee')->name('all.employee');

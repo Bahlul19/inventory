@@ -27,6 +27,10 @@
 <link rel="stylesheet" href="{{ asset('public/admin/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css') }}">
     <!-- iCheck -->
     <link rel="stylesheet" href="{{ asset('public/admin/plugins/icheck-bootstrap/icheck-bootstrap.min.css') }}">
+
+    <link rel="stylesheet" href="{{ asset('public/admin/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css') }}">
+
+    <link rel="stylesheet" href="{{ asset('public/admin/plugins/datatables-responsive/css/responsive.bootstrap4.min.css') }}">
     <!-- JQVMap -->
     <link rel="stylesheet" href="{{ asset('public/admin/plugins/jqvmap/jqvmap.min.css')}}">
     <!-- Theme style -->
@@ -218,27 +222,21 @@
             <a href="#" class="nav-link active">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
-                Dashboard
+                Employees
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="./index.html" class="nav-link active">
+              <a href="{{ route('add.employee') }}" class="nav-link active">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Dashboard v1</p>
+                  <p>New Employee</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="./index2.html" class="nav-link">
+                <a href="{{ route('all.employee') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Dashboard v2</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="./index3.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Dashboard v3</p>
+                  <p>All Employee</p>
                 </a>
               </li>
             </ul>
@@ -827,6 +825,30 @@
 <script src="{{ asset('public/admin/dist/js/pages/dashboard.js')}}"></script>
     <!-- AdminLTE for demo purposes -->
 <script src="{{ asset('public/admin/dist/js/demo.js')}}"></script>
+<script src="{{ asset('public/admin/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+<script src="{{ asset('public/admin/plugins/datatables/jquery.dataTables.min.js')}}"></script>
+<script src="{{ asset('public/admin/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js')}}"></script>
+<script src="{{ asset('public/admin/plugins/datatables-responsive/js/dataTables.responsive.min.js')}}"></script>
+<script src="{{ asset('public/admin/plugins/datatables-responsive/js/responsive.bootstrap4.min.js')}}"></script>
+<script src="{{ asset('public/admin/plugins/jquery/jquery.min.js')}}"></script>
         <!--Admin LTE css links end-->
+
+        <script>
+          $(function () {
+            $("#example1").DataTable({
+              "responsive": true,
+              "autoWidth": false,
+            });
+            $('#example2').DataTable({
+              "paging": true,
+              "lengthChange": false,
+              "searching": false,
+              "ordering": true,
+              "info": true,
+              "autoWidth": false,
+              "responsive": true,
+            });
+          });
+        </script>
 </body>
 </html>
