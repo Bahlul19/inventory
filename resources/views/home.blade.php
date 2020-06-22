@@ -1,7 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+
+
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <div class="content-header">
+    <div class="container-fluid">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
@@ -113,6 +118,8 @@
           </div>
         </form>
     </div>
+  </div>
+</div>
   </div>
 </div>
 

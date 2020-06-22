@@ -2,7 +2,10 @@
 
 @section('content')
 
-<div class="container">
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
     <table class="table">
         <thead>
           <tr>
@@ -28,5 +31,9 @@
         </tbody>
       </table>
 </div>
+    </div>
+  </div>
+
+
     
 @endsection
