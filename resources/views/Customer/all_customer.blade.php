@@ -21,11 +21,10 @@
                       <th>Email</th>
                       <th>Phone</th>
                       <th>Address</th>
-                      <th>Shopname</th>
-                      <th>Account Holder</th>
-                      <th>Account Number</th>
-                      <th>Bank Name</th>
-                      <th>Bank Branch</th>
+                      <th>Experience</th>
+                      <th>Photo</th>
+                      <th>Salary</th>
+                      <th>Vacation</th>
                       <th>City</th>
                       <th>Action</th>
                     </tr>
@@ -39,12 +38,11 @@
                     <td>{{ $customers->email }}</td>
                     <td>{{ $customers->phone }}</td>
                     <td>{{ $customers->address }}</td>
-                    <td>{{ $employees->shopname }}</td>
-                    <td>{{ $employees->account_holder }}</td>
-                    <td>{{ $employees->account_number }}</td>
-                    <td>{{ $employees->bank_name }}</td>
-                    <td>{{ $employees->bank_branch }}</td>
-                    <td>{{ $employees->city }}</td>
+                    <td>{{ $customers->account_holder }}</td>
+                    <td>{{ $customers->account_number }}</td>
+                    <td>{{ $customers->bank_name }}</td>
+                    <td>{{ $customers->bank_branch }}</td>
+                    <td>{{ $customers->city }}</td>
                     <td>
                       <a href="#" class="btn btn-info btn-sm">Edit</a>
                       <a href="#" class="btn btn-danger btn-sm">Delete</a>

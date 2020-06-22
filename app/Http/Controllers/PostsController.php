@@ -74,11 +74,6 @@ class PostsController extends Controller
     //Post edit method
     public function updatePost(Request $request, $id)
     {
-        $validatedData = $request->validate([
-            'title' => 'required|unique:posts|max:25|min:4',
-            'image' => 'mimes:jpeg,jpg,png,JPEG,JPG,PNG | max:100000',
-        ]);
-
         $post = Post::findorfail($id);
         $post->title = $request->title;
         $post->details = $request->details;

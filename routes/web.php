@@ -58,3 +58,11 @@ Route::get('/delete-post/{id}', 'PostsController@deletePost');
 Route::get('/Employee.add_employee', 'EmployeeController@addEmployee')->name('add.employee');
 Route::post('/Employee.store_data', 'EmployeeController@storeData');
 Route::get('/Employee.all_employee', 'EmployeeController@getAllEmployee')->name('all.employee');
+Route::get('/Employee.edit_employee/{id}', 'EmployeeController@editData');
+Route::get('/Employee.delete_employee/{id}', 'EmployeeController@deleteEmployee');
+Route::post('/Employee.update_employee/{id}', 'EmployeeController@updateEmployee');
+
+
+Route::get('/Customer.add_customer', 'CustomerController@addCustomer')->name('add.customer');
+Route::post('/Customer.store_data', 'CustomerController@storeData');
+Route::get('/Customer.all_customer', 'CustomerController@getAllCustomer')->name('all.customer');
