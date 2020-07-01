@@ -21,10 +21,10 @@
                       <th>Email</th>
                       <th>Phone</th>
                       <th>Address</th>
-                      <th>Experience</th>
-                      <th>Photo</th>
-                      <th>Salary</th>
-                      <th>Vacation</th>
+                      <th>Account Holder</th>
+                      <th>Account Number</th>
+                      <th>Bank Name</th>
+                      <th>Bank Branch</th>
                       <th>City</th>
                       <th>Action</th>
                     </tr>
@@ -44,9 +44,9 @@
                     <td>{{ $customers->bank_branch }}</td>
                     <td>{{ $customers->city }}</td>
                     <td>
-                      <a href="#" class="btn btn-info btn-sm">Edit</a>
-                      <a href="#" class="btn btn-danger btn-sm">Delete</a>
-                      <a href="#" class="btn btn-success btn-sm">View</a>
+                      <a href="{{ URL::to('Customer.edit_customer/'. $customers->id) }}" class="btn btn-info btn-sm">Edit</a>
+                      <a href="{{ URL::to('Customer.delete_customer/'. $customers->id) }}" class="btn btn-danger btn-sm">Delete</a>
+                      <a href="{{ URL::to('Customer.view_customer/'. $customers->id) }}" class="btn btn-success btn-sm">View</a>
                     </td>
                     </tr>
                         @endforeach

@@ -26,31 +26,20 @@
                       <th>Salary</th>
                       <th>Vacation </th>
                       <th>City</th>
-                      <th>Action</th>
                     </tr>
                     </thead>
                     <tbody>
-
-                        @foreach($employee as $employees)
                     <tr>
-                      <th scope="row">{{ $employees->id }}</th>
-                    <td>{{ $employees->name }}</td>
-                    <td>{{ $employees->email }}</td>
-                    <td>{{ $employees->phone }}</td>
-                    <td>{{ $employees->address }}</td>
-                    <td>{{ $employees->experience }}</td>
-                    <td><img src="{{ URL::to($employees->photo)}}" style="height: 70px; width: 100px"></td>
-                    <td>{{ $employees->salary }}</td>
-                    <td>{{ $employees->vacation }}</td>
-                    <td>{{ $employees->city }}</td>
-                    <td>
-                    <a href="{{ URL::to('Employee.edit_employee/'. $employees->id) }}" class="btn btn-info btn-sm">Edit</a>
-                      <a href="{{ URL::to('Employee.delete_employee/'. $employees->id) }}" class="btn btn-danger btn-sm">Delete</a>
-                      <a href="{{ URL::to('Employee.view_employee/'. $employees->id) }}" class="btn btn-success btn-sm">View</a>
-                    </td>
-                    </tr>
-                        @endforeach
-
+                    <td>{{ $employee->id }}</td>
+                    <td>{{ $employee->name }}</td>
+                    <td>{{ $employee->email }}</td>
+                    <td>{{ $employee->phone }}</td>
+                    <td>{{ $employee->address }}</td>
+                    <td>{{ $employee->experience }}</td>
+                    <td><img src="{{ URL::to($employee->photo)}}" style="height: 70px; width: 100px"></td>
+                    <td>{{ $employee->salary }}</td>
+                    <td>{{ $employee->vacation }}</td>
+                    <td>{{ $employee->city }}</td>
                     </tbody>
                   </table>
                 </div>

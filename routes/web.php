@@ -61,8 +61,13 @@ Route::get('/Employee.all_employee', 'EmployeeController@getAllEmployee')->name(
 Route::get('/Employee.edit_employee/{id}', 'EmployeeController@editData');
 Route::get('/Employee.delete_employee/{id}', 'EmployeeController@deleteEmployee');
 Route::post('/Employee.update_employee/{id}', 'EmployeeController@updateEmployee');
+Route::get('/Employee.view_employee/{id}', 'EmployeeController@viewIndividualData');
 
 
 Route::get('/Customer.add_customer', 'CustomerController@addCustomer')->name('add.customer');
 Route::post('/Customer.store_data', 'CustomerController@storeData');
 Route::get('/Customer.all_customer', 'CustomerController@getAllCustomer')->name('all.customer');
+Route::get('/Customer.view_customer/{id}', 'CustomerController@viewIndividualCustomer');
+Route::get('/Customer.delete_customer/{id}', 'CustomerController@deleteCustomer');
+Route::get('/Customer.edit_customer/{id}', 'CustomerController@editCustomer');
+Route::post('/Employee.update_customer/{id}', 'CustomerController@updateCutomer');

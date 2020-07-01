@@ -12,6 +12,12 @@ class EmployeeController extends Controller
         $this->middleware('auth');
     }
 
+    public function viewIndividualData($id)
+    {
+        $employee = Employee::findorfail($id);
+        return view ('Employee.view_employee')->with('employee', $employee);
+    }
+
     public function addEmployee()
     {
         return view('Employee.add_employee');
