@@ -124,7 +124,6 @@ class EmployeeController extends Controller
             $image_url = $upload_path.$image_full_name;
             $success = $photo->move($upload_path, $image_full_name);
             $employee->photo = $image_url;
-            unlink($request->old_photo);
             $saveEmployeeData = $employee->save();
             if ($saveEmployeeData) {
                 return Redirect()->route('all.employee')->with('success', 'Employees data updated successfully');
