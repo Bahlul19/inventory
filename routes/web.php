@@ -11,10 +11,6 @@
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
 //home page URL
 
 Route::get('/', function () {
@@ -71,3 +67,11 @@ Route::get('/Customer.view_customer/{id}', 'CustomerController@viewIndividualCus
 Route::get('/Customer.delete_customer/{id}', 'CustomerController@deleteCustomer');
 Route::get('/Customer.edit_customer/{id}', 'CustomerController@editCustomer');
 Route::post('/Employee.update_customer/{id}', 'CustomerController@updateCutomer');
+
+Route::get('/Suppliers.add_suppliers', 'SupplierController@addSupplier')->name('add.suppliers');
+Route::post('/Suppliers.store_data', 'SupplierController@storeData');
+Route::get('/Suppliers.all_customer', 'SupplierController@getAllSupplier')->name('all.suppliers');
+// Route::get('/Customer.view_customer/{id}', 'CustomerController@viewIndividualCustomer');
+Route::get('/Suppliers.delete_suppliers/{id}', 'SupplierController@deleteSupplier');
+Route::get('/Suppliers.edit_suppliers/{id}', 'SupplierController@editSupplier');
+Route::post('/Suppliers.update_suppliers/{id}', 'SupplierController@updateSupplier');

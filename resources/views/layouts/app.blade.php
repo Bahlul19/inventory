@@ -457,15 +457,6 @@
             </ul>
           </li>
           <li class="nav-header">EXAMPLES</li> --}}
-          <li class="nav-item">
-            <a href="pages/calendar.html" class="nav-link">
-              <i class="nav-icon far fa-calendar-alt"></i>
-              <p>
-                Calendar
-                <span class="badge badge-info right">2</span>
-              </p>
-            </a>
-          </li>
           {{-- <li class="nav-item">
             <a href="pages/gallery.html" class="nav-link">
               <i class="nav-icon far fa-image"></i>
@@ -493,6 +484,30 @@
                 <a href="{{ route('all.customer') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>All Customer</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+
+          <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fa fa-user"></i>
+              <p>
+                Suppliers
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{ route('add.suppliers') }}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Add Suppliers</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{ route('all.suppliers') }}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>All Suppliers</p>
                 </a>
               </li>
             </ul>
